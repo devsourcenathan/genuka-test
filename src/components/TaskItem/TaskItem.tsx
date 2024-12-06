@@ -26,6 +26,8 @@ export const TaskItem = ({
     setTasks
 }: TaskItemProps) => {
 
+
+    // Fonction pour mettre à jour le statut de la tâche
     const handleToggleTaskCompletion = () => {
         setTasks((tasks) => {
             const updatedTasks = tasks.map((task) => {

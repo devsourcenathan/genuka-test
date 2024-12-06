@@ -1,10 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Task Management Application
 
-## Getting Started
+## Description
 
-First, run the development server:
+Ce projet est une application de gestion des tâches, construite avec **Next.js**. Il permet à l'utilisateur de gérer des tâches, de les filtrer selon leur statut (ouvertes, fermées, archivées) et de créer de nouvelles tâches. Les tâches sont stockées localement via `localStorage` et sont récupérées au chargement de l'application.
+
+## Fonctionnalités
+
+- **Gestion des tâches** : Les utilisateurs peuvent créer des tâches avec un titre, un projet, une date, une heure de début et une heure de fin.
+- **Filtrage des tâches** : Les utilisateurs peuvent filtrer les tâches selon leur statut :
+  - **Toutes** : Affiche toutes les tâches (sauf celles archivées).
+  - **Ouvertes** : Affiche les tâches dont le statut est "ouvert".
+  - **Fermées** : Affiche les tâches dont le statut est "complété".
+  - **Archivées** : Affiche les tâches archivées.
+- **Ajout de tâches** : Une modal permet de créer de nouvelles tâches et de les ajouter à la liste.
+- **Stockage local** : Les tâches sont stockées dans le `localStorage` du navigateur, permettant de conserver l'état des tâches entre les sessions.
+
+## Technologies
+
+- **Next.js** : Utilisé pour créer l'application avec une approche server-side rendering (SSR).
+- **React** : Pour la gestion de l'interface utilisateur et des états (avec `useState` et `useEffect`).
+- **TailwindCSS** : Utilisé pour le style et les animations fluides (comme les transitions de survol et les animations de fade-in).
+- **TypeScript** : Pour assurer la sécurité des types et une meilleure maintenabilité du code.
+
+## Structure des composants
+
+- **`TaskList`** : Le composant principal qui affiche la liste des tâches avec la possibilité de les filtrer. Il gère également l'ouverture de la modal de création de tâches.
+- **`TaskItem`** : Composant qui représente une tâche individuelle. Il affiche les informations de la tâche et permet d'interagir avec elle (par exemple, marquer une tâche comme terminée).
+- **`FilterButton`** : Composant pour chaque bouton de filtre qui permet de filtrer les tâches par statut.
+- **`CreateTask`** : Modal pour la création d'une nouvelle tâche. Permet de saisir toutes les informations nécessaires pour ajouter une tâche.
+- **`localStorageTasks`** : Utilitaire pour interagir avec le `localStorage` afin de récupérer et d'ajouter des tâches.
+
+## Installation
 
 ```bash
+npm install
+
 npm run dev
 # or
 yarn dev
@@ -13,24 +43,3 @@ pnpm dev
 # or
 bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

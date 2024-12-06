@@ -22,6 +22,7 @@ export const TaskList = () => {
     const [filter, setFilter] = useState("All");
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    // Filtrage des tâches selon leur statut.
     const filteredTasks = tasks.filter((task) => {
         if (filter === "All") return task.status !== "archived";
         if (filter === "Open") return task.status === "open";
@@ -30,9 +31,13 @@ export const TaskList = () => {
         return true;
     });
 
+    // Permet de changer le filtre actif.
+
     const handleFilterChange = (newFilter: string) => {
         setFilter(newFilter);
     };
+
+    // Récupération des tâches depuis le localStorage au chargement du composant.
 
     useEffect(() => {
         const savedTasks = localStorageTasks.getTasks();
@@ -55,6 +60,7 @@ export const TaskList = () => {
                     </button>
                 </header>
 
+                {/* Affichage des boutons de filtre */}
                 <div className="flex gap-6 mb-6 px-8 justify-evenly">
                     <FilterButton
                         label={"All"}
@@ -83,6 +89,7 @@ export const TaskList = () => {
                     />
                 </div>
 
+                {/* Liste des tâches filtrées */}
                 <div className="space-y-4 px-8 pb-8">
                     {Array.isArray(filteredTasks) && filteredTasks.length > 0 ? (
                         filteredTasks.map((task) => (
@@ -108,6 +115,7 @@ export const TaskList = () => {
                 </div>
             </div>
 
+            {/* Modal pour créer une nouvelle tâche */}
             {isModalOpen && (
                 <div className="animate-fadeIn">
                     <CreateTask

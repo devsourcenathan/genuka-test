@@ -61,14 +61,14 @@ export const TaskList = () => {
                 </header>
 
                 {/* Affichage des boutons de filtre */}
-                <div className="flex gap-6 mb-6 px-8 justify-evenly">
+                <div className="grid grid-cols-2 md:flex gap-6 mb-6 px-8 justify-evenly">
                     <FilterButton
                         label={"All"}
                         count={tasks.length}
                         active={filter === "All"}
                         onClick={() => handleFilterChange("All")}
                     />
-                    <span>|</span>
+                    <span className="hidden md:block">|</span>
                     <FilterButton
                         label={"Open"}
                         count={tasks.filter((t) => t.status === "open").length}

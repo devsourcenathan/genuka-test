@@ -87,7 +87,7 @@ export const CreateTask = ({ onClose, setTasks }: FilterButtonProps) => {
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
             <div className="bg-white p-6 rounded-lg shadow-lg w-96">
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-xl font-bold">Add New Task</h2>
+                    <h2 className="text-xl font-bold  text-gray-800 ">Add New Task</h2>
                     <button
                         onClick={onClose}
                         className="text-gray-500 hover:text-gray-700"
@@ -101,7 +101,7 @@ export const CreateTask = ({ onClose, setTasks }: FilterButtonProps) => {
                     placeholder="Title"
                     value={newTask.title}
                     onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
-                    className={`border p-2 mb-3 w-full rounded ${errors.title ? "border-red-500" : ""}`}
+                    className={`border p-2 mb-3 w-full rounded text-gray-800 ${errors.title ? "border-red-500" : ""}`}
                 />
                 {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
 
@@ -110,7 +110,7 @@ export const CreateTask = ({ onClose, setTasks }: FilterButtonProps) => {
                     placeholder="Project"
                     value={newTask.project}
                     onChange={(e) => setNewTask({ ...newTask, project: e.target.value })}
-                    className={`border p-2 mb-3 w-full rounded ${errors.project ? "border-red-500" : ""}`}
+                    className={`border p-2 mb-3 w-full rounded text-gray-800  ${errors.project ? "border-red-500" : ""}`}
                 />
                 {errors.project && <p className="text-red-500 text-sm">{errors.project}</p>}
 
@@ -118,7 +118,7 @@ export const CreateTask = ({ onClose, setTasks }: FilterButtonProps) => {
                     type="date"
                     value={newTask.date}
                     onChange={(e) => setNewTask({ ...newTask, date: e.target.value })}
-                    className={`border p-2 mb-3 w-full rounded ${errors.date ? "border-red-500" : ""}`}
+                    className={`border p-2 mb-3 w-full rounded text-gray-800  ${errors.date ? "border-red-500" : ""}`}
                 />
                 {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
 
@@ -127,14 +127,14 @@ export const CreateTask = ({ onClose, setTasks }: FilterButtonProps) => {
                         type="time"
                         value={newTask.timeStart}
                         onChange={(e) => setNewTask({ ...newTask, timeStart: e.target.value })}
-                        className={`border p-2 flex-1 rounded ${errors.timeStart ? "border-red-500" : ""}`}
+                        className={`border p-2 flex-1 rounded text-gray-800  ${errors.timeStart ? "border-red-500" : ""}`}
                     />
 
                     <input
                         type="time"
                         value={newTask.timeEnd}
                         onChange={(e) => setNewTask({ ...newTask, timeEnd: e.target.value })}
-                        className={`border p-2 flex-1 rounded ${errors.timeEnd ? "border-red-500" : ""}`}
+                        className={`border p-2 flex-1 rounded text-gray-800  ${errors.timeEnd ? "border-red-500" : ""}`}
                     />
                 </div>
                 {errors.timeStart && <p className="text-red-500 text-sm">{errors.timeStart}</p>}
@@ -147,7 +147,7 @@ export const CreateTask = ({ onClose, setTasks }: FilterButtonProps) => {
                             placeholder="Add participant"
                             value={participantName}
                             onChange={(e) => setParticipantName(e.target.value)}
-                            className="border p-2 flex-grow rounded"
+                            className="border p-2 flex-grow rounded text-gray-800 "
                         />
                         <button
                             onClick={handleAddParticipant}
@@ -161,7 +161,7 @@ export const CreateTask = ({ onClose, setTasks }: FilterButtonProps) => {
                         {newTask.participants.map((participant, index) => (
                             <div
                                 key={index}
-                                className="flex justify-between items-center bg-gray-50 p-2 rounded"
+                                className="flex justify-between items-center bg-gray-50 p-2 rounded text-gray-800 "
                             >
                                 <span>{participant}</span>
                                 <button
